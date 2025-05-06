@@ -400,10 +400,103 @@ print(multiple)
 
 sentence = "I like 10 python".split()
 dictinoray = {word: len(word) for word in sentence if word.isalpha()}
-print(dictinoray)"""
+print(dictinoray)
 
 
 # generate 100 random numbers 
 # count how many are above 20
 # create a table
-# hello
+
+# use while loop and for loop to print 1-5
+num = 0
+while num <5:
+    num+=1
+    print(num)
+
+
+for num in range(1,6):
+    print(num)
+
+
+# files
+#file = open("filename", "mode")
+
+file = open("Diwali Sales Data.csv", "r")
+content = file.read()
+print(content)
+file.close()
+
+
+import timeit
+file = timeit.timeit(lambda :open("Diwali Sales Data.csv", "r").readlines(), number=2)
+print(file)
+
+# using with helps to close the file once its done, helps not to leak the resource
+
+with open("Diwali Sales Data.csv","r") as file:
+    content = file.readlines()
+    print(content)
+
+# Read a file and count how many times a specific word appears.
+word = input("Enter the word: ").strip()
+dictionary = {}
+
+with open("Diwali Sales Data.csv", "r") as file:
+    for line in file:
+        count_in_line = line.lower().count(word.lower())  # Case-insensitive count
+        if count_in_line > 0:
+            if word in dictionary:
+                dictionary[word] += count_in_line  # Add occurrences, not just 1
+            else:
+                dictionary[word] = count_in_line
+
+if dictionary:  # If word is found
+    for word, count in dictionary.items():
+        print(f"Word '{word}' appears {count} times in the file.")
+else:
+    print("No such word is present in the file.")
+
+
+# Manipulate the file by adding or removing lines.
+info = ["1002903", "Pradyumna",	"P00125942", "P", "26-35","28",	"0","Karnataka", "Western Healthcare", "Auto", "2",	"54564"]	
+
+with open("Diwali Sales Data.csv","w") as file:
+    file.writelines(info)"""
+
+
+
+#scikit learn
+import numpy as np
+import pandas as pd
+
+from sklearn.datasets import load_iris
+
+from sklearn.model_selection import train_test_split
+
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
+
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LinearRegression
+from sklearn.svm import SVC
+from sklearn.cluster import k_means 
+
+from sklearn.metrics import accuracy_score
+
+iris = load_iris()
+x = iris.data
+y = iris.target
+
+x_train, x_test, y_train, y_test = train_test_split(x,y, test_size=0.2,random_state=42)
+model = LogisticRegression()
+model.fit(x_train, y_train)
+
+y_pred = model.predict(x_test)
+
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy: {accuracy}')
+
+#GridsearchCV for the hyperparameter tuning 
+# it takes the different combination of the parameter and trains on them and finds the best model for the particular model based on the cross validation number.
+
