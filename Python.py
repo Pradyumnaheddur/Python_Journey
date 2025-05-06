@@ -500,4 +500,3 @@ print(f'Accuracy: {accuracy}')
 #GridsearchCV for the hyperparameter tuning 
 # it takes the different combination of the parameter and trains on them and finds the best model for the particular model based on the cross validation number.
 
-# oh shit 
