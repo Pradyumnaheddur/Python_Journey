@@ -1,4 +1,4 @@
-"""\
+
 # Write a Python program that prints your favorite sport.
 
 print("My favorite sport is Cricket")
@@ -461,7 +461,7 @@ else:
 info = ["1002903", "Pradyumna",	"P00125942", "P", "26-35","28",	"0","Karnataka", "Western Healthcare", "Auto", "2",	"54564"]	
 
 with open("Diwali Sales Data.csv","w") as file:
-    file.writelines(info)"""
+    file.writelines(info)
 
 
 
@@ -500,3 +500,33 @@ print(f'Accuracy: {accuracy}')
 #GridsearchCV for the hyperparameter tuning 
 # it takes the different combination of the parameter and trains on them and finds the best model for the particular model based on the cross validation number.
 
+#Task: Write a function to clean a sentence by:
+
+#Lowercasing
+
+#Removing punctuationcdc
+
+#Stripping extra spaces
+sentence = "Hello I am Pradyumna "
+def clean_txt(text):
+    cleaned = text.split()
+    print(cleaned)
+clean_txt(sentence)
+
+# Write a function tokenize that takes a document, processes it and outputs a list of lists of words.
+
+#Each inner list should represent one sentence with the items being the words (these can be all caps and contain digits).
+
+#using list comprehension
+
+sentence = "I have a cat. I have a Dog. I HAve 5 chicken".split(".")
+tokens = [item.split() for item in sentence]
+print(tokens)
+
+#using loop
+def tokenize(text):
+    temp = []
+    for item in text:
+        temp.append(item.split())
+    print(temp)
+tokenize(sentence)
